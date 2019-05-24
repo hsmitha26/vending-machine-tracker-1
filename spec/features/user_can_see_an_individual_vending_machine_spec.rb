@@ -10,7 +10,7 @@ RSpec.describe 'When a user visits a vending machine show page: ', type: :featur
     expect(page).to have_content("Don's Mixed Drinks Vending Machine")
   end
 
-  it "I see the name of all of the snacks associated with that vending machine along with their price" do
+  it "I see the name of all of the snacks associated with that vending machine along with their price and the average snack price" do
     owner = Owner.create!(name: "Sam's Snacks")
     dons  = owner.machines.create!(location: "Don's Mixed Drinks")
 
@@ -33,5 +33,7 @@ RSpec.describe 'When a user visits a vending machine show page: ', type: :featur
       expect(page).to have_content(snack_3.name)
       expect(page).to have_content("$#{snack_3.price}")
     end
+
+    expect(page).to have_content("Average Price: $1.5")
   end
 end
