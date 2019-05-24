@@ -43,15 +43,15 @@ RSpec.describe "When I visit a snack show page" do
 
     within ("#machines-#{@machine_1.id}") do
       expect(page).to have_content("Machine One")
-      expect(page).to have_content("$#{@machine_1.average_price}")
+      expect(page).to have_content("$#{@machine_1.average_price.to_f.round(2)}")
     end
     within ("#machines-#{@machine_2.id}") do
       expect(page).to have_content("Machine Two")
-      expect(page).to have_content("$#{@machine_2.average_price}")
+      expect(page).to have_content("$#{@machine_2.average_price.to_f.round(2)}")
     end
     within ("#machines-#{@machine_3.id}") do
       expect(page).to have_content("Machine Three")
-      expect(page).to have_content("$#{@machine_3.average_price}")
+      expect(page).to have_content("$#{@machine_3.average_price.to_f.round(2)}")
     end
   end
 end
