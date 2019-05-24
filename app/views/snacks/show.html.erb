@@ -1,0 +1,11 @@
+<h1><%= @snack.name %></h1>
+<h3>$<%= @snack.price %></h3>
+
+<h4><%= @snack.name %> can be found at the following locations: </h4>
+
+<% @snack.machines.each do |machine| %>
+  <div id="machines-<%= machine.id %>">
+    <h5><%= machine.location %></h5>
+    <h6>$<%= machine.average_price.to_f.round(2) %></h6>
+  </div>
+<% end %>
